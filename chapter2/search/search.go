@@ -8,6 +8,7 @@ import (
 // An array
 var matchers = make(map[string]Matcher)
 
+// Run is for Run the program
 func Run(searchTerm string) {
 	feeds, err := RetrieveFeeds()
 	if err != nil {
@@ -42,4 +43,14 @@ func Run(searchTerm string) {
 
 	Display(results)
 
+}
+
+// Register is called to register a matcher for use by the program
+func Register(feedType string, matcher Matcher) {
+	if _, exists := matchers[feedType]; exists {
+		log.Fatalln(feedType, "matcher already registered")
+	}
+
+	log.Println("Register", feedType, "matcher")
+	matchers[feedType] = matcher
 }
