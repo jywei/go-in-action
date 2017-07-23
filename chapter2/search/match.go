@@ -17,14 +17,14 @@ type Matcher interface {
 
 // Match is launched as a goroutine for each individual feed to run searches concurrently
 func Match(matcher Matcher, feed *Feed, searchTerm string, results chan<- *Result) {
-	searchTerm, err := matcher.Search(feed, searchTerm)
+	searchResults, err := matcher.Search(feed, searchTerm)
 	if err != nil {
 		log.Println(err)
 		return
 	}
 
 	// Write results to the channel
-	for _, result := range searchTerm {
+	for _, result := range searchResults {
 		results <- result
 	}
 }
