@@ -3,7 +3,7 @@ package main
 import (
 	"database/sql"
 
-	_ "github.com/go-in-action/chapter3/dbdriver/postgres"
+	_ "github.com/jywei/go-in-action/chapter3/dbdriver/postgres"
 )
 
 func main() {
