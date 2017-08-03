@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-// An array
+// An hash
 var matchers = make(map[string]Matcher)
 
 // Run is for Run the program
